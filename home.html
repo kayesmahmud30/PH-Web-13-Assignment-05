@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title and Logo -->
+    <title>GitHub Issues Tracker</title>
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Fonts integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind + DaisyUI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Stylesheet -->
+    <!-- <link rel="stylesheet" href="./styles/style.css" /> -->
+    <link rel="stylesheet" href="./styles/home.css" />
+  </head>
+  <body>
+    <!-- Nav starts -->
+    <header class="border-b-2 border-gray-200">
+      <nav class="flex justify-between items-center w-11/12 mx-auto py-4">
+        <div class="nav-logo flex justify-center items-center gap-5">
+          <img src="./assets/github-logo.png" alt="" class="w-9" />
+          <h2 class="text-[24px] font-bold">GitHub Issues Tracker</h2>
+        </div>
+
+        <div class="nav-input flex justify-center items-center gap-5">
+          <input class="input" type="text" placeholder=" ⌕ Search issues..." />
+          <button class="btn btn-primary">
+            <i class="fa-solid fa-plus"></i>New Issue
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Button's display starts -->
+    <section id="btn-section" class="max-w-[70%] mx-auto p-3 my-4 shadow-sm">
+      <button class="btn w-24 border-2 text-gray-600" id="all-btn">All</button>
+      <button class="btn w-24 border-2 text-gray-600" id="open-btn">
+        Open
+      </button>
+      <button class="btn w-24 border-2 text-gray-600" id="close-btn">
+        Closed
+      </button>
+    </section>
+
+    <!-- Display section starts -->
+    <section
+      id="count-section"
+      class="max-w-[70%] mx-auto p-3 my-4 shadow-sm flex justify-between items-center border border-gray-200"
+    >
+      <div class="counter-display-left flex justify-center items-center gap-2">
+        <img
+          src="./assets/Aperture.png"
+          alt=""
+          class="bg-[#ECE4FF] p-2 rounded-full"
+        />
+
+        <div>
+          <h2 class="text-xl font-bold">
+            <span id="issues-count">00</span> Issues
+          </h2>
+          <p class="text-gray-500">Track and manage your project issues</p>
+        </div>
+      </div>
+
+      <div class="counter-display-right flex gap-4">
+        <span class="flex items-center gap-1">
+          <div class="h-4 w-4 rounded-full bg-[#00A96E]"></div>
+          Open
+        </span>
+
+        <span class="flex items-center gap-1">
+          <div class="h-4 w-4 rounded-full bg-[#A855F7]"></div>
+          Closed
+        </span>
+      </div>
+    </section>
+
+    <!-- Card container starts -->
+    <section
+      id="issue-card-Container"
+      class="max-w-[70%] mx-auto p-3 my-4 shadow-sm grid grid-cols-4 gap-5"
+    >
+      <!-- Card start... -->
+
+      <!-- <div
+        class="card shadow-sm border border-gray-200 p-3 border-t-4 space-y-2 border-t-green-600"
+      >
+        <div class="relative py-4">
+          <p
+            class="text-center w-20 bg-red-100 rounded-full text-red-400 font-semibold absolute top-0 right-0"
+          >
+            High
+          </p>
+        </div>
+
+        <h2 class="text-[14px] font-bold">
+          Fix navigation menu on mobile devices
+        </h2>
+        <p class="text-[#64748B]">
+          The navigation menu doesn't collapse properly on mobile devices...
+        </p>
+        <div class="flex">
+          <span
+            class="text-center py-1 px-3 bg-red-100 rounded-full text-red-400 font-semibold text-xs"
+            ><i class="fa-solid fa-bug"></i> Bug</span
+          >
+
+          <span
+            class="text-center py-1 px-3 bg-yellow-100 rounded-full text-yellow-500 font-semibold mx-1 text-xs"
+            ><i class="fa-regular fa-life-ring"></i> help wanted</span
+          >
+        </div>
+
+        <p class="text-[#64748B]">#1 by john_doe</p>
+        <p class="text-[#64748B]">1/15/2024</p>
+      </div> -->
+    </section>
+
+    <script src="./scripts/home.js"></script>
+  </body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Title and Logo -->
-    <title>English Janala | Best platform for learning English</title>
+    <title>GitHub Issues Tracker</title>
     <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
 
     <!-- Font awesome -->
@@ -20,7 +20,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap"
       rel="stylesheet"
     />
 
@@ -36,6 +36,65 @@
     <link rel="stylesheet" href="./styles/style.css" />
   </head>
   <body>
+    <main class="w-130 h-80vh mx-auto bg-base-200 my-10 card card-body py-10">
+      <!-- Logo and Heading -->
+      <div class="flex flex-col items-center justify-center">
+        <img src="./assets/github-logo.png" alt="" />
+        <div class="py-5 text-center">
+          <h2 class="text-2xl font-semibold">GitHub Issues Tracker</h2>
+          <p class="text-gray-500 text-[16px]">Sign in to manage your issues</p>
+        </div>
+      </div>
+
+      <!-- Sign in  -->
+      <div class="card w-full mx-auto max-w-md shrink-0">
+        <div class="card-body">
+          <fieldset class="fieldset">
+            <label class="label text-[18px] font-medium text-black"
+              >Username</label
+            >
+            <input
+              id="user-name"
+              type="text"
+              class="input text-[16px] w-full"
+              placeholder="Enter Username"
+            />
+            <p class="text-primary text-[14px]">Default: admin</p>
+            <label class="label text-[18px] font-medium text-black"
+              >Password</label
+            >
+            <input
+              id="password"
+              type="password"
+              class="input text-[16px] w-full"
+              placeholder="Enter Password"
+            />
+            <p class="text-primary text-[14px]">Default: admin123</p>
+
+            <button id="sing-btn" class="btn btn-primary mt-4">Sign In</button>
+          </fieldset>
+        </div>
+      </div>
+
+      <!-- Or section -->
+
+      <div class="space-y-5 text-center">
+        <fieldset class="border-t border-gray-400 text-center px-4 rounded">
+          <legend class="px-2 font-bold">OR</legend>
+        </fieldset>
+
+        <h3>Demo Credentials:</h3>
+        <div>
+          <p class="text-[16px]">
+            <span class="font-semibold">Username:</span> admin
+          </p>
+          <p class="text-[16px]">
+            <span class="font-semibold">Password:</span> admin123
+          </p>
+        </div>
+      </div>
+    </main>
+
     <script src="./scripts/index.js"></script>
   </body>
 </html>
