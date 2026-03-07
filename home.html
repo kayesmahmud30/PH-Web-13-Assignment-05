@@ -46,7 +46,7 @@
         </div>
 
         <div class="nav-input flex justify-center items-center gap-5">
-          <input class="input" type="text" placeholder=" ⌕ Search issues..." />
+          <input id="search-input" class="input" type="text" placeholder=" ⌕ Search issues..." />
           <button class="btn btn-primary">
             <i class="fa-solid fa-plus"></i>New Issue
           </button>
@@ -60,7 +60,7 @@
       <button class="btn w-24 border-2 text-gray-600" id="open-btn">
         Open
       </button>
-      <button class="btn w-24 border-2 text-gray-600" id="close-btn">
+      <button class="btn w-24 border-2 text-gray-600" id="closed-btn">
         Closed
       </button>
     </section>
@@ -100,7 +100,7 @@
 
     <!-- Card container starts -->
     <section
-      id="issue-card-Container"
+      id="issue-card-container"
       class="max-w-[70%] mx-auto p-3 my-4 shadow-sm grid grid-cols-4 gap-5"
     >
       <!-- Card start... -->

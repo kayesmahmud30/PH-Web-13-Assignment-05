@@ -1,3 +1,9 @@
 * {
   font-family: "Geist", sans-serif;
 }
+
+.active-btn {
+  background-color: blue !important;
+  color: #fff !important;
+  border-radius: 5px;
+}
