@@ -83,7 +83,7 @@ const renderCards = (issues) => {
           ${createLabels(issue.labels)}
         </div>
 
-        <p id="issue-author" class="text-[#64748B]">${issue.author}</p>
+        <p id="issue-author" class="text-[#64748B]"># ${issue.id} ${issue.author}</p>
         <p id="issue-date" class="text-[#64748B]">${new Date(
           issue.createdAt,
         ).toDateString()}</p>
