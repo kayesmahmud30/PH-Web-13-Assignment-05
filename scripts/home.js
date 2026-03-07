@@ -86,7 +86,7 @@ const renderCards = (issues) => {
         <p id="issue-author" class="text-[#64748B]"># ${issue.id} | ${issue.author}</p>
         <p id="issue-date" class="text-[#64748B]">${new Date(
           issue.createdAt,
-        ).toDateString()}</p>
+        ).toLocaleDateString("en-US")}</p>
       </div>
     `;
     issueContainer.append(div);

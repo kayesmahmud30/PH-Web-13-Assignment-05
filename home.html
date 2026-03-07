@@ -42,10 +42,14 @@
       <nav class="flex justify-between items-center w-11/12 mx-auto py-4">
         <div class="nav-logo flex justify-center items-center gap-5">
           <img src="./assets/github-logo.png" alt="" class="w-9" />
-          <h2 class="text-[24px] font-bold">GitHub Issues Tracker</h2>
+          <h2 class="text-[24px] font-bold hidden md:block">
+            GitHub Issues Tracker
+          </h2>
         </div>
 
-        <div class="nav-input flex justify-center items-center gap-5">
+        <div
+          class="nav-input flex justify-center items-center gap-5 sm:m-0 ml-4"
+        >
           <input
             id="search-input"
             class="input"
@@ -60,12 +64,17 @@
     </header>
 
     <!-- Button's display starts -->
-    <section id="btn-section" class="max-w-[70%] mx-auto p-3 my-4 shadow-sm">
-      <button class="btn w-24 border-2 text-gray-600" id="all-btn">All</button>
-      <button class="btn w-24 border-2 text-gray-600" id="open-btn">
+    <section
+      id="btn-section"
+      class="sm:max-w-[90%] max-w-[90%] md:max-w-[70%] p-3 my-4 shadow-sm sm:block grid space-y-2 mx-auto"
+    >
+      <button class="btn sm:w-24 border-2 text-gray-600" id="all-btn">
+        All
+      </button>
+      <button class="btn sm:w-24 border-2 text-gray-600" id="open-btn">
         Open
       </button>
-      <button class="btn w-24 border-2 text-gray-600" id="closed-btn">
+      <button class="btn sm:w-24 border-2 text-gray-600" id="closed-btn">
         Closed
       </button>
     </section>
@@ -73,20 +82,22 @@
     <!-- Display section starts -->
     <section
       id="count-section"
-      class="max-w-[70%] mx-auto p-3 my-4 shadow-sm flex justify-between items-center border border-gray-200"
+      class="sm:max-w-[90%] max-w-[90%] md:max-w-[70%] mx-auto p-3 my-4 shadow-sm flex justify-between items-center border border-gray-200"
     >
       <div class="counter-display-left flex justify-center items-center gap-2">
         <img
           src="./assets/Aperture.png"
           alt=""
-          class="bg-[#ECE4FF] p-2 rounded-full"
+          class="bg-[#ECE4FF] p-2 rounded-full sm:inline hidden"
         />
 
         <div>
           <h2 class="text-xl font-bold">
             <span id="issues-count">00</span> Issues
           </h2>
-          <p class="text-gray-500">Track and manage your project issues</p>
+          <p class="text-gray-500 sm:text-[16px] text-[12px]">
+            Track and manage your project issues
+          </p>
         </div>
       </div>
 
@@ -111,7 +122,7 @@
     <!-- Card container starts -->
     <section
       id="issue-card-container"
-      class="max-w-[70%] mx-auto p-3 my-4 shadow-sm grid grid-cols-4 gap-5"
+      class="sm:max-w-[90%] max-w-[90%] md:max-w-[70%] mx-auto p-3 my-4 shadow-sm grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
     ></section>
 
     <dialog id="open_modal" class="modal modal-bottom sm:modal-middle">
