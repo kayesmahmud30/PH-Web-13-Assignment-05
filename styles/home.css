@@ -7,3 +7,20 @@
   color: #fff !important;
   border-radius: 5px;
 }
+
+.high {
+  background: #feecec;
+  color: #ef4444;
+  border: 1px solid #ef4444;
+}
+.medium {
+  background: #fff6d1;
+  color: #f59e0b;
+  border: 1px solid #f59e0b;
+}
+
+.low {
+  background: #eeeff2;
+  color: #9ca3af;
+  border: 1px solid #9ca3af;
+}
