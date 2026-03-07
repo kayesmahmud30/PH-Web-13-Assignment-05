@@ -26,7 +26,7 @@ const createLabels = (arr) => {
 
   const htmlElements = arr.map(
     (element) =>
-      `<button class="p-1 rounded-md font-semibold border-2 border-yellow-400">${element}<button/>`,
+      `<button class="py-1 px-2 rounded-full font-semibold border-2 border-yellow-400">${element}<button/>`,
   );
 
   return htmlElements.join(" ");
@@ -119,12 +119,6 @@ closedBtn.addEventListener("click", () => {
 loadAllIssue();
 
 //----------------------------------------------------------------
-searchInput.addEventListener("input", () => {
-  console.log(searchInput.value);
-});
-// console.log(cards);
-
-//----------------------------------------------------------------
 issueContainer.addEventListener("click", (event) => {
   const clickedCard = event.target.closest(".card");
 
@@ -184,3 +178,32 @@ const displayModalDetails = (clickedCard) => {
   `;
   document.getElementById("open_modal").showModal();
 };
+
+//----------------------------------------------------------------
+searchInput.addEventListener("input", () => {
+  manageSpinner(true);
+  const searchValue = searchInput.value.trim().toLowerCase();
+  fetch(
+    `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`,
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      const filteredData = data.data.filter((card) =>
+        card.title.toLowerCase().includes(searchValue),
+      );
+
+      if (searchValue.length != 0) {
+        renderCards(filteredData);
+      } else {
+        allBtn.classList.add("active-btn");
+        openBtn.classList.remove("active-btn");
+        closedBtn.classList.remove("active-btn");
+        renderCards(allIssues);
+      }
+
+      console.log(filteredData);
+    });
+  manageSpinner(false);
+  console.log(searchValue);
+});
+// console.log(cards);
