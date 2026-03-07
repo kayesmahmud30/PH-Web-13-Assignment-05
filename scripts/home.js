@@ -50,12 +50,12 @@ const individualDataLoad = (issues) => {
     } else if (issue.status == "closed") closedIssues.push(issue);
   });
   console.log(allIssues.length);
-  renderAll(allIssues);
+  renderCards(allIssues);
   allBtn.classList.add("active-btn");
   // manageSpinner(false);
 };
 
-const renderAll = (issues) => {
+const renderCards = (issues) => {
   issueCountDisplay.innerText = issues.length;
 
   issueContainer.innerHTML = "";
@@ -66,7 +66,7 @@ const renderAll = (issues) => {
         class="h-full card shadow-sm border border-gray-200 p-3 border-t-4 space-y-2 ${issue.status == "open" ? "border-t-green-600" : "border-t-violet-800"}"
       >
         <div class="relative py-4">
-          <p
+          <p id="issue-priority"
             class="text-center w-20 rounded-full ${issue.priority == "high" ? "high" : issue.priority == "medium" ? "medium" : "low"} font-semibold absolute top-0 right-0"
           >
             ${issue.priority}
@@ -76,15 +76,15 @@ const renderAll = (issues) => {
         <h2 class="text-[14px] font-bold">
          ${issue.title}
         </h2>
-        <p class="text-[#64748B]">
+        <p id="issue-description" class="text-[#64748B]">
           ${issue.description}
         </p>
-        <div class="flex flex-wrap gap-1">
+        <div id="issue-label" class="flex flex-wrap gap-1">
           ${createLabels(issue.labels)}
         </div>
 
-        <p class="text-[#64748B]">#${issue.author}</p>
-        <p class="text-[#64748B]">${new Date(
+        <p id="issue-author" class="text-[#64748B]">${issue.author}</p>
+        <p id="issue-date" class="text-[#64748B]">${new Date(
           issue.createdAt,
         ).toDateString()}</p>
       </div>
@@ -98,21 +98,21 @@ allBtn.addEventListener("click", () => {
   allBtn.classList.add("active-btn");
   openBtn.classList.remove("active-btn");
   closedBtn.classList.remove("active-btn");
-  renderAll(allIssues);
+  renderCards(allIssues);
   // manageSpinner(false);
 });
 openBtn.addEventListener("click", () => {
   allBtn.classList.remove("active-btn");
   openBtn.classList.add("active-btn");
   closedBtn.classList.remove("active-btn");
-  renderAll(openIssues);
+  renderCards(openIssues);
   // manageSpinner(false);
 });
 closedBtn.addEventListener("click", () => {
   allBtn.classList.remove("active-btn");
   openBtn.classList.remove("active-btn");
   closedBtn.classList.add("active-btn");
-  renderAll(closedIssues);
+  renderCards(closedIssues);
   // manageSpinner(false);
 });
 
@@ -137,10 +137,12 @@ issueContainer.addEventListener("click", (event) => {
 
 //Modal.....
 const displayModalDetails = (clickedCard) => {
-  console.log(clickedCard);
+  // console.log(clickedCard);
+  const testVal = clickedCard.querySelector("#issue-author").innerText;
+  console.log(testVal);
+
   const detailBox = document.getElementById("modal-details-container");
   // console.log(clickedCard);
-
   // <h1>${clickedCard.querySelector("h2").innerText}</h1>
   detailBox.innerHTML = `
           <h1 class="text-[24px] font-bold">
@@ -148,35 +150,34 @@ const displayModalDetails = (clickedCard) => {
           </h1>
           <p class="text-[#64748B]">
             <span
-              class="text-white bg-green-600 py-[5px] px-[10px] rounded-full"
-              >Opened</span
-            >
-            • Opened by Fahim Ahmed • 22/02/2026
+              class="text-white ${clickedCard.classList.contains("border-t-green-600") ? "bg-green-600" : "bg-red-600"} py-[5px] px-[10px] rounded-full mr-1"
+              >
+              ${clickedCard.classList.contains("border-t-green-600") ? "Opened" : "Closed"}
+              </span>
+             • Opened by ${clickedCard.querySelector("#issue-author").innerText} • ${clickedCard.querySelector("#issue-date").innerText}
           </p>
 
-          <span class="flex gap-3">
-            <p class="border py-[3px] px-[10px] rounded-full font-semibold">
-              Bug
-            </p>
-            <p class="border py-[3px] px-[10px] rounded-full font-semibold">
-              help wanted
-            </p>
+          <span class="flex gap-1">
+        ${clickedCard.querySelector("#issue-label").innerHTML}
           </span>
           <p class="text-[#64748B]">
-            The navigation menu doesn't collapse properly on mobile devices.
-            Need to fix the responsive behavior.
+          ${clickedCard.querySelector("#issue-description").innerText}
           </p>
           <div class="flex items-center">
             <div class="assignee w-[50%] space-y-1">
               <p class="text-[#64748B]">Assignee:</p>
-              <h2 class="font-bold">Fahim Ahmed</h2>
+              <h2 class="font-bold">
+              ${clickedCard.querySelector("#issue-author").innerText}
+              </h2>
             </div>
 
             <div class="priority w-[50%] space-y-2">
               <p class="text-[#64748B]">Priority:</p>
               <span
-                class="bg-red-600 text-white px-[10px] py-[5px] rounded-full"
-                >High</span
+                class="${clickedCard.querySelector("#issue-priority").innerText == "high" ? "high" : clickedCard.querySelector("#issue-priority").innerText == "medium" ? "medium" : "low"} px-[10px] py-[5px] rounded-full"
+                >
+                ${clickedCard.querySelector("#issue-priority").innerText}
+                </span
               >
             </div>
           </div>
