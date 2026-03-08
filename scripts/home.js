@@ -69,15 +69,17 @@ const renderCards = (issues) => {
           </p>
         </div>
 
-        <h2 class="text-[14px] font-bold">
+        <h2 class="text-[16px] font-semibold">
          ${issue.title}
         </h2>
-        <p id="issue-description" class="text-[#64748B]">
+        <p id="issue-description" class="text-[12px] text-[#64748B]">
           ${issue.description}
         </p>
         <div id="issue-label" class="flex flex-wrap gap-1">
           ${createLabels(issue.labels)}
         </div>
+        
+<hr class="border-gray-200 my-2">
 
         <p id="issue-author" class="text-[#64748B]">#${issue.id} by ${issue.author}</p>
         <p id="issue-date" class="text-[#64748B]">${new Date(

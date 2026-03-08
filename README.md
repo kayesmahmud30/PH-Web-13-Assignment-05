@@ -10,4 +10,4 @@
 `let` is **block-scoped**, cannot be redeclared in the same scope, but its value **can be reassigned**.
 `const` is also **block-scoped**, cannot be **redeclared or reassigned**, making it ideal for values that should stay constant.
 
-**As a devoloper we always need to use const and let. We shouldn'n use var anywhere.**
+**As a developer we always need to use const and let. We shouldn't use var anywhere.**
