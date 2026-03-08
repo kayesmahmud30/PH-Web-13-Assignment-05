@@ -22,8 +22,6 @@ const manageSpinner = (status) => {
 };
 
 const createLabels = (arr) => {
-  // console.log(arr);
-
   const htmlElements = arr.map(
     (element) =>
       `<button class="py-1 px-2 rounded-full font-semibold border-2 border-yellow-400">${element}<button/>`,
@@ -49,10 +47,8 @@ const individualDataLoad = (issues) => {
       openIssues.push(issue);
     } else if (issue.status == "closed") closedIssues.push(issue);
   });
-  console.log(allIssues.length);
   renderCards(allIssues);
   allBtn.classList.add("active-btn");
-  // manageSpinner(false);
 };
 
 const renderCards = (issues) => {
@@ -83,10 +79,12 @@ const renderCards = (issues) => {
           ${createLabels(issue.labels)}
         </div>
 
-        <p id="issue-author" class="text-[#64748B]"># ${issue.id} | ${issue.author}</p>
+        <p id="issue-author" class="text-[#64748B]">#${issue.id} by ${issue.author}</p>
         <p id="issue-date" class="text-[#64748B]">${new Date(
           issue.createdAt,
         ).toLocaleDateString("en-US")}</p>
+
+        <p id="issue-assignee" class="hidden">${issue.assignee}</p>
       </div>
     `;
     issueContainer.append(div);
@@ -99,45 +97,30 @@ allBtn.addEventListener("click", () => {
   openBtn.classList.remove("active-btn");
   closedBtn.classList.remove("active-btn");
   renderCards(allIssues);
-  // manageSpinner(false);
 });
 openBtn.addEventListener("click", () => {
   allBtn.classList.remove("active-btn");
   openBtn.classList.add("active-btn");
   closedBtn.classList.remove("active-btn");
   renderCards(openIssues);
-  // manageSpinner(false);
 });
 closedBtn.addEventListener("click", () => {
   allBtn.classList.remove("active-btn");
   openBtn.classList.remove("active-btn");
   closedBtn.classList.add("active-btn");
   renderCards(closedIssues);
-  // manageSpinner(false);
 });
 
 loadAllIssue();
 
-//----------------------------------------------------------------
 issueContainer.addEventListener("click", (event) => {
   const clickedCard = event.target.closest(".card");
-
-  // console.log(clickedCard);
   displayModalDetails(clickedCard);
-  // const title = clickedCard.querySelector("h2");
-  // const status = clickedCard.querySelector("h2");
-  // console.log(clickedCard);
 });
 
-//Modal.....
 const displayModalDetails = (clickedCard) => {
-  // console.log(clickedCard);
-  const testVal = clickedCard.querySelector("#issue-author").innerText;
-  console.log(testVal);
-
   const detailBox = document.getElementById("modal-details-container");
-  // console.log(clickedCard);
-  // <h1>${clickedCard.querySelector("h2").innerText}</h1>
+
   detailBox.innerHTML = `
           <h1 class="text-[24px] font-bold">
           ${clickedCard.querySelector("h2").innerText}
@@ -148,7 +131,7 @@ const displayModalDetails = (clickedCard) => {
               >
               ${clickedCard.classList.contains("border-t-green-600") ? "Opened" : "Closed"}
               </span>
-             • Opened by ${clickedCard.querySelector("#issue-author").innerText} • ${clickedCard.querySelector("#issue-date").innerText}
+             • by ${clickedCard.querySelector("#issue-author").innerText.split("by")[1]} • ${clickedCard.querySelector("#issue-date").innerText}
           </p>
 
           <span class="flex gap-1">
@@ -161,7 +144,7 @@ const displayModalDetails = (clickedCard) => {
             <div class="assignee w-[50%] space-y-1">
               <p class="text-[#64748B]">Assignee:</p>
               <h2 class="font-bold">
-              ${clickedCard.querySelector("#issue-author").innerText}
+              ${clickedCard.querySelector("#issue-assignee").innerText}
               </h2>
             </div>
 
@@ -179,7 +162,6 @@ const displayModalDetails = (clickedCard) => {
   document.getElementById("open_modal").showModal();
 };
 
-//----------------------------------------------------------------
 searchInput.addEventListener("input", () => {
   manageSpinner(true);
   const searchValue = searchInput.value.trim().toLowerCase();
@@ -200,10 +182,6 @@ searchInput.addEventListener("input", () => {
         closedBtn.classList.remove("active-btn");
         renderCards(allIssues);
       }
-
-      console.log(filteredData);
     });
   manageSpinner(false);
-  console.log(searchValue);
 });
-// console.log(cards);
