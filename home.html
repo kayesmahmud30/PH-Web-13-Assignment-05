@@ -33,7 +33,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- Stylesheet -->
-    <!-- <link rel="stylesheet" href="./styles/style.css" /> -->
     <link rel="stylesheet" href="./styles/home.css" />
   </head>
   <body>
@@ -66,15 +65,18 @@
     <!-- Button's display starts -->
     <section
       id="btn-section"
-      class="sm:max-w-[90%] max-w-[90%] md:max-w-[70%] p-3 my-4 shadow-sm sm:block grid space-y-2 mx-auto"
+      class="sm:max-w-[90%] max-w-[90%] md:max-w-[70%] p-3 my-4 shadow-sm sm:flex grid space-y-2 mx-auto"
     >
-      <button class="btn sm:w-24 border-2 text-gray-600" id="all-btn">
+      <button class="btn sm:w-24 border-2 text-gray-600 sm:mr-2" id="all-btn">
         All
       </button>
-      <button class="btn sm:w-24 border-2 text-gray-600" id="open-btn">
+      <button class="btn sm:w-24 border-2 text-gray-600 sm:mr-2" id="open-btn">
         Open
       </button>
-      <button class="btn sm:w-24 border-2 text-gray-600" id="closed-btn">
+      <button
+        class="btn sm:w-24 border-2 text-gray-600 sm:mr-2"
+        id="closed-btn"
+      >
         Closed
       </button>
     </section>

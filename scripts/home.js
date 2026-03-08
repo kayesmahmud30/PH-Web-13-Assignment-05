@@ -143,8 +143,8 @@ const displayModalDetails = (clickedCard) => {
           <div class="flex items-center">
             <div class="assignee w-[50%] space-y-1">
               <p class="text-[#64748B]">Assignee:</p>
-              <h2 class="font-bold">
-              ${clickedCard.querySelector("#issue-assignee").innerText}
+              <h2 class="font-bold ${!!clickedCard.querySelector("#issue-assignee").innerText ? "text-black" : "text-red-400"}">
+              ${!!clickedCard.querySelector("#issue-assignee").innerText ? clickedCard.querySelector("#issue-assignee").innerText : "Assignee not found"}
               </h2>
             </div>
 
