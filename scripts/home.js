@@ -117,7 +117,9 @@ loadAllIssue();
 
 issueContainer.addEventListener("click", (event) => {
   const clickedCard = event.target.closest(".card");
-  displayModalDetails(clickedCard);
+  if (!!clickedCard) {
+    displayModalDetails(clickedCard);
+  }
 });
 
 const displayModalDetails = (clickedCard) => {
