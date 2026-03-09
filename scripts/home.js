@@ -59,7 +59,7 @@ const renderCards = (issues) => {
     const div = document.createElement("div");
     div.innerHTML = `
       <div
-        class="h-full card shadow-sm border border-gray-200 p-3 border-t-4 space-y-2 ${issue.status == "open" ? "border-t-green-600" : "border-t-violet-800"}"
+        class="h-full card shadow-sm border border-gray-200 p-3 border-t-4 space-y-2 ${issue.status == "open" ? "border-t-[#00A96E]" : "border-t-[#A855F7]"}"
       >
         <div class="relative py-4">
           <p id="issue-priority"
@@ -163,30 +163,6 @@ const displayModalDetails = (clickedCard) => {
   `;
   document.getElementById("open_modal").showModal();
 };
-
-// searchInput.addEventListener("input", () => {
-//   manageSpinner(true);
-//   const searchValue = searchInput.value.trim().toLowerCase();
-//   fetch(
-//     `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`,
-//   )
-//     .then((res) => res.json())
-//     .then((data) => {
-//       const filteredData = data.data.filter((card) =>
-//         card.title.toLowerCase().includes(searchValue),
-//       );
-
-//       if (searchValue.length != 0) {
-//         renderCards(filteredData);
-//       } else {
-//         allBtn.classList.add("active-btn");
-//         openBtn.classList.remove("active-btn");
-//         closedBtn.classList.remove("active-btn");
-//         renderCards(allIssues);
-//       }
-//     });
-//   manageSpinner(false);
-// });
 
 searchInput.addEventListener("input", () => {
   manageSpinner(true);
