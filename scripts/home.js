@@ -131,9 +131,9 @@ const displayModalDetails = (clickedCard) => {
           </h1>
           <p class="text-[#64748B]">
             <span
-              class="text-white ${clickedCard.classList.contains("border-t-green-600") ? "bg-green-600" : "bg-red-600"} py-[5px] px-[10px] rounded-full mr-1"
+              class="text-white ${clickedCard.classList.contains("border-t-[#00A96E]") ? "bg-green-600" : "bg-red-600"} py-[5px] px-[10px] rounded-full mr-1"
               >
-              ${clickedCard.classList.contains("border-t-green-600") ? "Opened" : "Closed"}
+              ${clickedCard.classList.contains("border-t-[#00A96E]") ? "Opened" : "Closed"}
               </span>
              • by ${clickedCard.querySelector("#issue-author").innerText.split("by")[1]} • ${clickedCard.querySelector("#issue-date").innerText}
           </p>
